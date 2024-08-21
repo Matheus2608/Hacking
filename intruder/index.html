@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payload Positions Interface</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f7f7f7;
+            height: 100vh;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+        }
+
+        h1 {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .header-bar {
+            margin-bottom: 20px;
+        }
+
+        .header-bar .buttons {
+            gap: 10px;
+        }
+
+        .header-bar button {
+            padding: 8px 12px;
+            border: none;
+            background-color: #eee;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        .header-bar button:hover {
+            background-color: #ddd;
+        }
+
+        .request-input {
+            width: 100%;
+            height: calc(100vh - 100px); /* Adjust height to fill the page */
+            background-color: #f9f9f9;
+            border: 1px solid #ccc;
+            padding: 10px;
+            font-family: monospace;
+            font-size: 14px;
+            line-height: 1.5;
+            white-space: pre-wrap;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Payload Positions Interface</h1>
+        <form action="http:localhost:8000/api" method="POST">
+            <div class="header-bar">
+                <div class="buttons">
+                    <button type="button">Add §</button>
+                    <button type="button">Clear §</button>
+                    <button type="submit" name="start" value="start">Start</button>
+                    <button type="submit" name="stop" value="stop">Stop</button>
+                </div>
+            </div>
+            <textarea class="request-input" name="requestData">
+Put your request here please !!! 
+And remember to put your dynamic input besides § like §{dynamic_input}§
+            </textarea>
+        </form>
+    </div>
+</body>
+</html>
