@@ -13,11 +13,22 @@ The first time execution with no cuncurrency was 10 minutes
 Second time execution with cuncurrency was 1 minute
 Finally the last and third time execution with cuncurrency and binary search was 10 seconds
 
-I loved the journey of writting this scripts after a long time not coding so I posted here on github
+I loved the journey of writting this scripts after a long time not coding so I posted here on github :)
 
-Below are the images of the duration of each script, have a good day!
+## How to execute 
+- Go to [Portswigger Academy SQL lab](https://portswigger.net/web-security/sql-injection/blind/lab-conditional-responses/)
+- Make an account
+- Start the lab
+- With developer tools, get session and trackingId cookie
+- install go with ```sudo apt-get install golang```
+- run ```go build {file that you want to build}```
+- execute ```./{file that you want to execute} {url of the lab} {sessionCookie} {trackingIdCookie}``` 
+- copy the output, which is the password, and then paste on the login page of the lab with the name **administrator**
+
 
 ### Results
+Below are the images of the duration of each script, have a good day!
 - ![First Result](./time-results/firstResult.png)
 - ![Second Result](./time-results/secondResult.png)
 - ![Third Result](./time-results/thirdResult.png)
+
