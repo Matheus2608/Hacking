@@ -67,17 +67,58 @@
         <form action="http:localhost:8000/api" method="POST">
             <div class="header-bar">
                 <div class="buttons">
-                    <button type="button">Add §</button>
-                    <button type="button">Clear §</button>
-                    <button type="submit" name="start" value="start">Start</button>
-                    <button type="submit" name="stop" value="stop">Stop</button>
+                    <button type="button" id="addSectionButton">Add §</button>
+                    <button type="button" id="clearButton">Clear §</button>
+                    <button type="submit" name="action" value="start">Start</button>
+                    <button type="submit" name="action" value="stop">Stop</button>
                 </div>
             </div>
-            <textarea class="request-input" name="requestData">
+            <textarea class="request-input" name="requestData" id="requestData">
 Put your request here please !!! 
-And remember to put your dynamic input besides § like §{dynamic_input}§
+Remember to put your dynamic input besides § like §{dynamic_input}§
+And put it one the right position of the header like Host: §api.github.com§
+Not in the healer as §Host§: api.github.com or it will not work
+Example:
+
+GET /users/Matheus2608 HTTP/2
+Host: api.github.com
+Sec-Ch-Ua: "Not)A;Brand";v="99", "Brave";v="127", "Chromium";v="127"
+Sec-Ch-Ua-Mobile: ?0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36
+Sec-Ch-Ua-Platform: "Linux"
+Accept: */*
+Sec-Gpc: 1
+Accept-Language: pt-BR,pt;q=0.9
+Origin: https://github.com
+Sec-Fetch-Site: same-site
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: empty
+Referer: https://github.com/
+Accept-Encoding: gzip, deflate, br
+If-None-Match: W/"ab8578368323e0f35fd892eb089a50d385c5df3bde9b5709d71218eba18b015c"
+If-Modified-Since: Tue, 23 Jul 2024 12:07:31 GMT
+Priority: u=1, i
+Connection: keep-alive
+
+
             </textarea>
         </form>
     </div>
+    <script>
+        document.getElementById('addSectionButton').addEventListener('click', function() {
+            const textarea = document.getElementById('requestData');
+            const start = textarea.selectionStart;
+            const end = textarea.selectionEnd;
+            const selectedText = textarea.value.substring(start, end);
+            const beforeText = textarea.value.substring(0, start);
+            const afterText = textarea.value.substring(end);
+            textarea.value = beforeText + '§' + selectedText + '§' + afterText;
+        });
+
+        document.getElementById('clearButton').addEventListener('click', function() {
+        const textarea = document.getElementById('requestData');
+        textarea.value = textarea.value.replace(/§/g, '');
+        });
+    </script>
 </body>
 </html>
