@@ -32,6 +32,7 @@
         }
 
         .header-bar .buttons {
+            display: flex;
             gap: 10px;
         }
 
@@ -47,9 +48,14 @@
             background-color: #ddd;
         }
 
+        .content {
+            display: flex;
+            gap: 10px;
+        }
+
         .request-input {
-            width: 100%;
-            height: calc(100vh - 100px); /* Adjust height to fill the page */
+            width: 70%;
+            height: calc(100vh - 200px); /* Adjust height to fill the page */
             background-color: #f9f9f9;
             border: 1px solid #ccc;
             padding: 10px;
@@ -58,6 +64,19 @@
             line-height: 1.5;
             white-space: pre-wrap;
             border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        .payload-input {
+            width: 30%;
+            height: calc(100vh - 200px); /* Adjust height to fill the page */
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-family: monospace;
+            font-size: 14px;
+            line-height: 1.5;
+            white-space: pre-wrap;
         }
     </style>
 </head>
@@ -73,7 +92,8 @@
                     <button type="submit" name="action" value="stop">Stop</button>
                 </div>
             </div>
-            <textarea class="request-input" name="requestData" id="requestData">
+            <div class="content">
+                <textarea class="request-input" name="requestData" id="requestData">
 Put your request here please !!! 
 Remember to put your dynamic input besides § like §{dynamic_input}§
 And put it one the right position of the header like Host: §api.github.com§
@@ -101,24 +121,11 @@ Priority: u=1, i
 Connection: keep-alive
 
 
-            </textarea>
+                </textarea>
+                <textarea class="payload-input" id="payloadInput" placeholder="Enter your payload here"></textarea>
+            </div>
         </form>
     </div>
-    <script>
-        document.getElementById('addSectionButton').addEventListener('click', function() {
-            const textarea = document.getElementById('requestData');
-            const start = textarea.selectionStart;
-            const end = textarea.selectionEnd;
-            const selectedText = textarea.value.substring(start, end);
-            const beforeText = textarea.value.substring(0, start);
-            const afterText = textarea.value.substring(end);
-            textarea.value = beforeText + '§' + selectedText + '§' + afterText;
-        });
-
-        document.getElementById('clearButton').addEventListener('click', function() {
-        const textarea = document.getElementById('requestData');
-        textarea.value = textarea.value.replace(/§/g, '');
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>

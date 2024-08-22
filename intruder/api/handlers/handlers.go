@@ -61,10 +61,7 @@ func PostHandler(res http.ResponseWriter, req *http.Request) {
 		return
 	}
 
-	// Access the form values
-	params := req.Form
-
-	httpReq, err := makeRequest(params["requestData"][0])
+	httpReq, err := makeRequest(req.Form["requestData"][0])
 	if err != nil {
 		fmt.Println("Error creating request:", err)
 		return
