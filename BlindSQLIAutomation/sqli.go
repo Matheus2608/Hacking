@@ -5,7 +5,6 @@ import (
 	"fmt"
 	"io"
 	"net/http"
-	"net/url"
 	"os"
 	"strings"
 	"time"
@@ -36,10 +35,6 @@ func exploit(targetUrl string, session string, trackingId string) {
 	// Create a new client
 	client := &http.Client{
 		Transport: &http.Transport{
-			Proxy: http.ProxyURL(&url.URL{
-				Scheme: "http",
-				Host:   "127.0.0.1:8080",
-			}),
 			TLSClientConfig: &tls.Config{InsecureSkipVerify: true},
 		},
 	}

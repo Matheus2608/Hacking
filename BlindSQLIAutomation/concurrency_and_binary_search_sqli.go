@@ -5,7 +5,6 @@ import (
 	"fmt"
 	"io"
 	"net/http"
-	"net/url"
 	"os"
 	"strings"
 	"sync"
@@ -32,10 +31,6 @@ func main() {
 	// Create a new client
 	client := &http.Client{
 		Transport: &http.Transport{
-			Proxy: http.ProxyURL(&url.URL{
-				Scheme: "http",
-				Host:   "127.0.0.1:8080",
-			}),
 			TLSClientConfig: &tls.Config{InsecureSkipVerify: true},
 		},
 	}
