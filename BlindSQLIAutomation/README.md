@@ -10,6 +10,9 @@ E esse é o resultado dos meus scripts que funcionaram! A primeira execução se
 
 Adorei a jornada de escrever esses scripts depois de tanto tempo sem codificar, então publiquei aqui no GitHub :)
 
+## Demonstração
+https://github.com/user-attachments/assets/975a430e-4257-4430-8d60-85d901c3a98c
+
 ## Como executar:
 - Vá para o [laboratório de SQL na Portswigger Academy](https://portswigger.net/web-security/sql-injection/blind/lab-conditional-responses/)
 - Crie uma conta
